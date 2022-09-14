@@ -8,7 +8,7 @@ void swap(int &a, int &b)
     b = temp;
 }
 
-void bubbleSort(int vec[], int dim)
+void BubbleSort(int vec[], int dim)
 {
     for (int c = 0; c < dim; c++)
     {
@@ -34,7 +34,7 @@ int main()
     cout << "]" << endl
          << endl;
 
-    bubbleSort(vec, 10);
+    BubbleSort(vec, 10);
 
     cout << "Array ordinato = [ ";
     for (int c = 0; c < 10; c++)
