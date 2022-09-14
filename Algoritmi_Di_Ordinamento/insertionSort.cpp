@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void insertionSort(int vec[], int dim)
+void InsertionSort(int vec[], int dim)
 {
     int temp = 0, j = 0;
 
@@ -37,7 +37,7 @@ int main()
     cout << "]" << endl
          << endl;
 
-    insertionSort(vec, 10);
+    InsertionSort(vec, 10);
 
     cout << "Array ordinato = [ ";
     for (int c = 0; c < 10; c++)
