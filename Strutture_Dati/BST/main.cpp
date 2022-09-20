@@ -24,7 +24,7 @@ int main()
     bst.insert(32);
     bst.insert(78);
     bst.insert(52);
-    bst.insert(11);
+    bst.insert(13);
     bst.insert(44);
 
     bst.inorder();
