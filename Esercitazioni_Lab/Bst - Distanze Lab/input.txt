@@ -1,0 +1,6 @@
+int 10 ins:80 ins:172 ins:13 ins:138 ins:223 ins:245 ins:144 ins:152 ins:151 ins:270 151 138
+int 10 ins:54 ins:285 ins:218 ins:95 ins:166 ins:272 ins:118 ins:124 ins:141 ins:84 54 218
+int 10 ins:282 ins:208 ins:239 ins:120 ins:37 ins:258 ins:298 ins:141 ins:14 ins:26 14 282
+char 15 ins:m ins:h ins:s ins:e ins:j ins:p ins:w ins:f ins:l ins:i ins:u ins:q ins:z ins:n ins:r l n
+char 9 ins:o ins:q ins:f ins:l ins:p ins:t ins:c ins:s ins:m c p
+char 13 ins:n ins:e ins:t ins:h ins:x ins:o ins:c ins:d ins:r ins:w ins:g ins:i ins:z g r
