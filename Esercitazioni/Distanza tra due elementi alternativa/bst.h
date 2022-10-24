@@ -3,7 +3,7 @@
 
 #include "bst_node.h"
 #include <iostream>
-int val1 = 0,val2=0,valc1 = 0,valc2=0,pos1=0,pos2=0,i=0;
+
 template <typename T>
 class BST
 {
@@ -20,9 +20,6 @@ public:
         return root == nullptr;
     }
 
-    void setval(){
-        val1 = 0,val2=0,valc1 = 0,valc2=0,pos1=0,pos2=0,i=0;
-    }
     BSTNode<T> *getRoot()
     {
         return this->root;
@@ -68,22 +65,11 @@ public:
 
     void preorder(BSTNode<T> *ptr)
     {
-        preorder(ptr->left);
         if (ptr == nullptr)
             return;
-        i++;
-        if (ptr->key == val1){
-        pos1=i;
-        }
-        if(ptr->key == val2){
-        pos2=i;
-        }
-        if (ptr->key == valc1){
-        pos1=i;
-        }
-        if(ptr->key == valc2){
-        pos2=i;
-        }
+
+        visit(ptr);
+        preorder(ptr->left);
         preorder(ptr->right);
     }
 
@@ -95,15 +81,6 @@ public:
         inorder(ptr->left);
         visit(ptr);
         inorder(ptr->right);
-    }
-
-        void preorder2(BSTNode<T> *ptr)
-    {
-        if (ptr == nullptr)
-            return;
-        visit(ptr);
-        preorder(ptr->left);
-        preorder(ptr->right);
     }
 
     void postorder(BSTNode<T> *ptr)
@@ -124,10 +101,6 @@ public:
     void preorder()
     {
         preorder(root);
-    }
-     void preorder2()
-    {
-        preorder2(root);
     }
 
     void postorder()
@@ -321,7 +294,17 @@ public:
 
         return nullptr;
     }
+    int DistanzaSuccessore(BSTNode<T> *aux){
+        int i=0;
+        BSTNode<T> *succ=successor(aux);
+        if(succ==nullptr){
+            return 0;
+        }
 
+
+
+
+    }
     BSTNode<T> *remove(T key)
     {
         // Caso 1 e 2, viene richiamata l funzione al quale passiamo il nodo e non il valore (chiave)
@@ -352,23 +335,6 @@ public:
         toDelete = this->remove(next);
 
         return toDelete;
-    }
-
-    int distanzaChiavi(T k, T h)
-    {
-    if(typeid(k)==typeid(int)){
-        val1=k;
-        val2=h;
-    }
-    if(typeid(k)==typeid(char)){
-        valc1=k;
-        valc2=h;
-    }
-       preorder();
-       if(pos1>pos2){
-        return pos1-pos2;
-       }
-        return pos2-pos1;
     }
 };
 #endif

@@ -3,13 +3,15 @@
 
 #include "bst_node.h"
 #include <iostream>
-int val1 = 0,val2=0,valc1 = 0,valc2=0,pos1=0,pos2=0,i=0;
+using namespace std;
+
 template <typename T>
 class BST
 {
     BSTNode<T> *root;
 
 public:
+    int i=0;
     BST()
     {
         root = nullptr;
@@ -20,9 +22,6 @@ public:
         return root == nullptr;
     }
 
-    void setval(){
-        val1 = 0,val2=0,valc1 = 0,valc2=0,pos1=0,pos2=0,i=0;
-    }
     BSTNode<T> *getRoot()
     {
         return this->root;
@@ -68,22 +67,11 @@ public:
 
     void preorder(BSTNode<T> *ptr)
     {
-        preorder(ptr->left);
         if (ptr == nullptr)
             return;
-        i++;
-        if (ptr->key == val1){
-        pos1=i;
-        }
-        if(ptr->key == val2){
-        pos2=i;
-        }
-        if (ptr->key == valc1){
-        pos1=i;
-        }
-        if(ptr->key == valc2){
-        pos2=i;
-        }
+
+        visit(ptr);
+        preorder(ptr->left);
         preorder(ptr->right);
     }
 
@@ -95,15 +83,6 @@ public:
         inorder(ptr->left);
         visit(ptr);
         inorder(ptr->right);
-    }
-
-        void preorder2(BSTNode<T> *ptr)
-    {
-        if (ptr == nullptr)
-            return;
-        visit(ptr);
-        preorder(ptr->left);
-        preorder(ptr->right);
     }
 
     void postorder(BSTNode<T> *ptr)
@@ -124,10 +103,6 @@ public:
     void preorder()
     {
         preorder(root);
-    }
-     void preorder2()
-    {
-        preorder2(root);
     }
 
     void postorder()
@@ -155,6 +130,29 @@ public:
 
         return ptr;
     }
+
+    BSTNode<T> *min2()
+    {
+        return min(root);
+    }
+
+    BSTNode<T> *min2(BSTNode<T> *from)
+    {
+        if (isEmpty())
+        {
+            return NULL;
+        }
+
+        BSTNode<T> *ptr = from;
+        while (ptr->left)
+        {
+            ptr = ptr->left;
+            i++;
+        }
+
+        return ptr;
+    }
+
 
     BSTNode<T> *max()
     {
@@ -215,6 +213,37 @@ public:
         }
 
         return y;
+    }
+
+    int DistanzaSuccessore(BSTNode<T> *x)
+    {
+        if (this->isEmpty())
+        {
+            return 0;
+        }
+
+        // 1. x ha un sottoalbero destro
+
+        if (x->right)
+        {
+            i++;
+            min2(x->right);
+            return i;
+        }
+
+        // 2. x non ha un sottoalbero destro
+        // il successore di x è l'antenato più prossimo di x
+        // il cui figlio sinistro è anche un antenato di x
+
+        BSTNode<T> *y = x->parent;
+        i++;
+        while (x != nullptr && x == y->right)
+        {
+            x = y;
+            y = y->parent;
+            i++;
+        }
+        return i;
     }
 
     BSTNode<T> *predecessor(BSTNode<T> *x)
@@ -352,23 +381,6 @@ public:
         toDelete = this->remove(next);
 
         return toDelete;
-    }
-
-    int distanzaChiavi(T k, T h)
-    {
-    if(typeid(k)==typeid(int)){
-        val1=k;
-        val2=h;
-    }
-    if(typeid(k)==typeid(char)){
-        valc1=k;
-        valc2=h;
-    }
-       preorder();
-       if(pos1>pos2){
-        return pos1-pos2;
-       }
-        return pos2-pos1;
     }
 };
 #endif

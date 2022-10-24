@@ -1,5 +1,5 @@
 #include "bst.h"
-
+#include "bst_node.h"
 int main()
 {
 
@@ -13,7 +13,13 @@ int main()
     {
         std::cout << ex << std::endl;
     }
-
+    /*
+                        40
+                25              57
+            21      36      46      78
+        18        32      44   52
+    13    
+    */
     bst.insert(40);
     bst.insert(25);
     bst.insert(21);
@@ -26,8 +32,10 @@ int main()
     bst.insert(52);
     bst.insert(13);
     bst.insert(44);
-
-    bst.postorder();
+    BSTNode<int> *aux = bst.search(40);
+    cout<<"Successore = "<<bst.successor(aux)->getKey()<<endl;
+    
+    cout<<"Distanza valore successore = "<<bst.DistanzaSuccessore(aux)<<endl;;
     /*
     std::cout << "MIN & MAX" << std::endl
               << *(bst.min()) << std::endl;
