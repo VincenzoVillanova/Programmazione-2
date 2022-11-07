@@ -27,7 +27,7 @@ int main()
     bst.insert(13);
     bst.insert(44);
 
-    bst.postorder();
+    bst.inorder();
     /*
     std::cout << "MIN & MAX" << std::endl
               << *(bst.min()) << std::endl;
