@@ -133,10 +133,10 @@ public:
 
     BSTNode<T> *min2()
     {
-        return min(root);
+        return min2(root);
     }
 
-    BSTNode<T> *min2(BSTNode<T> *from)
+    int *min2(BSTNode<T> *from)
     {
         if (isEmpty())
         {
