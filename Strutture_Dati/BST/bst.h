@@ -241,7 +241,7 @@ public:
         return nullptr;
     }
 
-    BSTNode<T> *remove(BSTNode<T> *node)
+       BSTNode<T> *remove(BSTNode<T> *node)
     {
 
         if (node == root)
@@ -264,7 +264,7 @@ public:
             }
         }
         // CASO 1
-        // il nodo è una foglia
+        // il nodo Ã¨ una foglia
         if (node->left == nullptr && node->right == nullptr)
         {
             if (node == node->parent->left)
@@ -281,12 +281,12 @@ public:
         {
             node->right->parent = node->parent;
 
-            // il nodo da eliminare è figlio sx
+            // il nodo da eliminare Ã¨ figlio sx
             if (node == node->parent->left)
             {
                 node->parent->left = node->right;
             }
-            // il nodo da eliminare è figlio dx
+            // il nodo da eliminare Ã¨ figlio dx
             else if (node == node->parent->right)
             {
                 node->parent->right = node->right;
@@ -299,12 +299,12 @@ public:
         {
             node->left->parent = node->parent;
 
-            // il nodo da eliminare è figlio sx
+            // il nodo da eliminare Ã¨ figlio sx
             if (node == node->parent->left)
             {
                 node->parent->left = node->left;
             }
-            // il nodo da eliminare è figlio dx
+            // il nodo da eliminare Ã¨ figlio dx
             else if (node == node->parent->right)
             {
                 node->parent->right = node->left;
@@ -314,7 +314,6 @@ public:
 
         return nullptr;
     }
-
 
     BSTNode<T> *remove(T key)
     {
