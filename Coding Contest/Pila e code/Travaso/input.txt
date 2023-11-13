@@ -1,0 +1,4 @@
+bool 10 e:0 p:0 p:1 travasa p:1 e:1 pop e:1 dequeue e:0
+char 10 e:g p:k e:j e:h travasa p:f p:o e:n pop p:e
+char 10 p:c travasa p:n dequeue travasa p:p e:o dequeue e:p travasa
+int 10 e:7 p:88 p:42 pop pop e:82 e:12 p:54 e:49 travasa

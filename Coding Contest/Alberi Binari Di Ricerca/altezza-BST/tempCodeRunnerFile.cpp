@@ -1,0 +1,1 @@
+BstDouble.PesoNodo(BstDouble.search(vald1))
